@@ -8,28 +8,39 @@ export default function Login() {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
+    const isValidEmail = (email) =>
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
 
-        try {
-            const res = await api.post("/auth/login", {
-                email,
-                password
-            });
+        if (!email || !password) {
+            return setError("All fields are required");
+        }
 
+        if (!isValidEmail(email)) {
+            return setError("Invalid email format");
+        }
+
+        if (password.length < 6) {
+            return setError("Password must be at least 6 characters");
+        }
+
+        try {
+            const res = await api.post("/auth/login", { email, password });
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("user", JSON.stringify(res.data.user));
 
-            if (res.data.user.role === "admin") {
-                navigate("/admin");
-            } else {
-                navigate("/profile");
-            }
+            res.data.user.role === "admin"
+                ? navigate("/admin")
+                : navigate("/profile");
         } catch (err) {
             setError(err.response?.data?.message || "Login failed");
         }
     };
+
 
     return (
         <div className="container">

@@ -10,10 +10,26 @@ export default function Signup() {
     const [success, setSuccess] = useState("");
     const navigate = useNavigate();
 
+    const isValidEmail = (email) =>
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         setSuccess("");
+
+        if (!fullName || !email || !password) {
+            return setError("All fields are required");
+        }
+
+        if (!isValidEmail(email)) {
+            return setError("Invalid email format");
+        }
+
+        if (password.length < 6) {
+            return setError("Password must be at least 6 characters");
+        }
 
         try {
             await api.post("/auth/signup", {
@@ -28,6 +44,7 @@ export default function Signup() {
             setError(err.response?.data?.message || "Signup failed");
         }
     };
+
 
     return (
         <div className="container">
