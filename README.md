@@ -63,7 +63,7 @@ Admin-only dashboard access
 ## LIVE DEPLOYMENT
 
 Frontend (Vercel)
-https://purplemerit-user-management-mbfdarz3b-aabuubaids-projects.vercel.app
+https://purplemerit-user-management-lime.vercel.app/
 
 Backend (Render)
 https://purplemerit-user-management-k76u.onrender.com
