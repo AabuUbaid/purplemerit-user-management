@@ -1,0 +1,70 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../services/api";
+
+export default function Signup() {
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+        setSuccess("");
+
+        try {
+            await api.post("/auth/signup", {
+                fullName,
+                email,
+                password,
+            });
+
+            setSuccess("Signup successful. Please login.");
+            setTimeout(() => navigate("/"), 1200);
+        } catch (err) {
+            setError(err.response?.data?.message || "Signup failed");
+        }
+    };
+
+    return (
+        <div>
+            <h2>Signup</h2>
+
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            {success && <p style={{ color: "green" }}>{success}</p>}
+
+            <form onSubmit={handleSubmit}>
+                <input
+                    placeholder="Full Name"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                />
+                <br />
+
+                <input
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <br />
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <br />
+
+                <button type="submit">Create Account</button>
+            </form>
+
+            <p>
+                Already have an account? <Link to="/">Login</Link>
+            </p>
+        </div>
+    );
+}
