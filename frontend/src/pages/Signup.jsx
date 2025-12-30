@@ -30,11 +30,11 @@ export default function Signup() {
     };
 
     return (
-        <div>
+        <div className="container">
             <h2>Signup</h2>
 
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            {success && <p style={{ color: "green" }}>{success}</p>}
+            {error && <p className="error">{error}</p>}
+            {success && <p className="success">{success}</p>}
 
             <form onSubmit={handleSubmit}>
                 <input

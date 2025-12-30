@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "../services/api";
 import { useNavigate } from "react-router-dom";
+import api from "../services/api";
 
 export default function Profile() {
     const [user, setUser] = useState(null);
@@ -34,7 +34,10 @@ export default function Profile() {
     const changePassword = async (e) => {
         e.preventDefault();
         setMessage("");
-        await api.put("/users/change-password", { oldPassword, newPassword });
+        await api.put("/users/change-password", {
+            oldPassword,
+            newPassword
+        });
         setOldPassword("");
         setNewPassword("");
         setMessage("Password changed");
@@ -48,8 +51,8 @@ export default function Profile() {
     if (!user) return <p>Loading...</p>;
 
     return (
-        <div>
-            <h2>User Profile</h2>
+        <div className="container">
+            <h2>Profile</h2>
             <p><b>Role:</b> {user.role}</p>
 
             <form onSubmit={updateProfile}>
@@ -82,7 +85,7 @@ export default function Profile() {
 
             {message && <p>{message}</p>}
 
-            <button onClick={logout}>Logout</button>
+            <button className="secondary" onClick={logout}>Logout</button>
         </div>
     );
 }

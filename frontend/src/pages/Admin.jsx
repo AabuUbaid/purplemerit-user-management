@@ -23,36 +23,38 @@ export default function Admin() {
     };
 
     return (
-        <div>
+        <div className="container">
             <h2>Admin Dashboard</h2>
 
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {users.map(u => (
-                        <tr key={u._id}>
-                            <td>{u.email}</td>
-                            <td>{u.role}</td>
-                            <td>{u.status}</td>
-                            <td>
-                                {u.role !== "admin" && (
-                                    <button onClick={() => toggleStatus(u._id, u.status)}>
-                                        {u.status === "active" ? "Deactivate" : "Activate"}
-                                    </button>
-                                )}
-                            </td>
+            <div className="table-wrapper">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                        {users.map(u => (
+                            <tr key={u._id}>
+                                <td>{u.email}</td>
+                                <td>{u.role}</td>
+                                <td>{u.status}</td>
+                                <td>
+                                    {u.role !== "admin" && (
+                                        <button onClick={() => toggleStatus(u._id, u.status)}>
+                                            {u.status === "active" ? "Deactivate" : "Activate"}
+                                        </button>
+                                    )}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
