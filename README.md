@@ -1,4 +1,4 @@
-## PurpleMerit User Management System
+# PurpleMerit User Management System
 
 A full-stack user management application built as part of the PurpleMerit Backend Intern assessment.
 
@@ -6,7 +6,7 @@ The project demonstrates secure authentication, role-based access control, admin
 
 ## TECH STACK
 
-Backend
+### Backend
 
 Node.js
 
@@ -20,7 +20,7 @@ JWT Authentication
 
 bcrypt
 
-Frontend
+### Frontend
 
 React (Vite)
 
@@ -30,7 +30,7 @@ Axios
 
 Minimal custom CSS
 
-# FEATURES
+## FEATURES
 
 Authentication & Authorization
 
@@ -60,7 +60,7 @@ Activate and deactivate users
 
 Admin-only dashboard access
 
-# LIVE DEPLOYMENT
+## LIVE DEPLOYMENT
 
 Frontend (Vercel)
 https://purplemerit-user-management-mbfdarz3b-aabuubaids-projects.vercel.app
@@ -68,9 +68,9 @@ https://purplemerit-user-management-mbfdarz3b-aabuubaids-projects.vercel.app
 Backend (Render)
 https://purplemerit-user-management-k76u.onrender.com
 
-# ENVIRONMENT VARIABLES
+## ENVIRONMENT VARIABLES
 
-Backend (.env)
+### Backend (.env)
 
 PORT
 MONGO_URI
@@ -81,7 +81,7 @@ Note: Actual environment variable values are not committed to the repository.
 
 ## LOCAL SETUP INSTRUCTIONS
 
-# Backend
+### Backend
 
 Navigate to backend folder
 
@@ -94,7 +94,7 @@ cd backend
 npm install
 npm run dev
 
-# Frontend
+### Frontend
 
 Navigate to frontend folder
 
@@ -109,7 +109,7 @@ npm run dev
 
 ## API DOCUMENTATION
 
-# Authentication
+### Authentication
 
 Signup
 POST /api/auth/signup
@@ -189,4 +189,4 @@ API testing using Postman
 
 (Video link included in submission.)
 
-## END OF DOCUMENT
+# END OF DOCUMENT
