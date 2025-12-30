@@ -44,24 +44,54 @@ const styles = {
     nav: {
         display: "flex",
         justifyContent: "space-between",
-        padding: "12px 20px",
-        background: "#1f2937",
-        color: "#fff",
+        alignItems: "center",
+        padding: "12px 16px",
+        background: "#ffffff",
+        borderBottom: "1px solid #e5e5ea",
+        fontFamily:
+            '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif',
     },
+
+    brand: {
+        fontSize: "15px",
+        fontWeight: 600,
+        letterSpacing: "-0.02em",
+        color: "#1d1d1f",
+    },
+
     links: {
         display: "flex",
-        gap: "14px",
         alignItems: "center",
+        gap: "16px",
     },
+
     link: {
-        color: "#fff",
+        fontSize: "14px",
+        fontWeight: 500,
+        color: "#1d1d1f",
         textDecoration: "none",
+        padding: "6px 4px",
+        transition: "color 0.15s ease",
     },
+
+    linkHover: {
+        color: "#007aff", // Apple blue
+    },
+
     logout: {
-        background: "#dc2626",
+        marginLeft: "8px",
+        padding: "6px 12px",
+        fontSize: "13px",
+        fontWeight: 500,
+        color: "#d70015",
+        background: "#f2f2f7",
         border: "none",
-        color: "#fff",
-        padding: "6px 10px",
+        borderRadius: "8px",
         cursor: "pointer",
+        transition: "background 0.15s ease",
+    },
+
+    logoutHover: {
+        background: "#e5e5ea",
     },
 };
