@@ -187,6 +187,6 @@ Live deployed frontend and backend
 
 API testing using Postman
 
-(Video link included in submission.)
+Video link: https://drive.google.com/file/d/1Uk7mNa4WWS7cYSyLqNVdcQdsMLOq2-QC/view?usp=drivesdk
 
 # END OF DOCUMENT
